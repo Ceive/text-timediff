@@ -183,10 +183,11 @@ class Timediff{
 				}
 				return implode($this->delimiter, $a);
 			}else{
+				$dr = $this->getDefaultResult();
 				foreach(array_intersect_key($result, $data) as $key => $_){
 					if(isset($data[$key]) && $data[$key]){
 						if($_ === true || is_int($_)){
-							$_ = $this->default_result[$key];
+							$_ = $dr[$key];
 						}elseif(is_string($_)){
 							$_ = [$_];
 						}
